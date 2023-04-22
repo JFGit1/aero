@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: davis-sans, sans-serif;
+		font-size: 18px;
+	}
+	body {
+		@apply cursor-default overflow-x-hidden bg-white text-base font-light text-black;
+	}
+
+	a {
+		color: inherit;
+		font-weight: 400;
+		text-decoration: none;
+	}
+
+	a:not([class]) {
+		text-decoration-skip-ink: auto;
+	}
+
+	img {
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+
+	p {
+		margin: 0 0 1rem 0;
+	}
+
+	ul {
+		margin-bottom: 1rem;
+		padding-left: 1.12rem;
+	}
+
+	.btn {
+		@apply rounded py-2 px-4 font-normal shadow-lg transition-all duration-300;
+	}
+	.btn-blue {
+		@apply bg-blue-500 text-white;
+	}
+	.btn-blue:hover {
+		@apply bg-blue-700;
+	}
+}
