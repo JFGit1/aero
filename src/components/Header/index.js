@@ -24,15 +24,6 @@ export function Header() {
 						<li>
 							<MenuLink label='Home' url='/' />
 						</li>
-						<li>
-							<MenuLink label='About Us' url='/about-us' />
-						</li>
-						<li>
-							<MenuLink label='Staff' url='/about-us/staff' />
-						</li>
-						<li>
-							<MenuLink label='Projects' url='/projects' />
-						</li>
 					</ul>
 				</nav>
 			</header>
