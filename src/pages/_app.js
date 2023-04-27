@@ -7,7 +7,7 @@ import '@/styles/globals.css';
 
 const client = new ApolloClient({
 	ssrMode: true,
-	uri: 'https://forell-lab.amzb.securityserve.com/graphql',
+	uri: process.env.NEXT_PUBLIC__GRAPHQL_ENDPOINT,
 	cache: new InMemoryCache(),
 });
 

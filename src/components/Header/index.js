@@ -8,9 +8,9 @@ export function Header() {
 			<header className='container mx-auto flex flex-col items-center py-4 md:flex-row md:justify-between'>
 				<motion.h1
 					className='text-5xl font-bold leading-none'
-					whileHover={{ scale: 1.15 }}
+					whileHover={{ scale: 1 }}
 					transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-					whileTap={{ scale: 0.95 }}>
+					whileTap={{ scale: 1 }}>
 					<Link
 						className='text-orange'
 						href='/'
@@ -23,6 +23,9 @@ export function Header() {
 					<ul className='m-0 mt-2 flex gap-5 p-0 text-base md:mt-0'>
 						<li>
 							<MenuLink label='Home' url='/' />
+						</li>
+						<li>
+							<MenuLink label='Blog' url='/blog' />
 						</li>
 					</ul>
 				</nav>

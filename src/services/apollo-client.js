@@ -16,8 +16,8 @@ const defaultOptions = {
 const cache = new InMemoryCache();
 
 const apolloClient = new ApolloClient({
-	uri: 'https://forell-lab.amzb.securityserve.com/graphql',
-	// uri: process.env.NEXT_PUBLIC__GRAPHQL_ENDPOINT,
+	// uri: 'https://forell-lab.amzb.securityserve.com/graphql',
+	uri: process.env.NEXT_PUBLIC__GRAPHQL_ENDPOINT,
 	cache: cache,
 	ssrForceFetchDelay: 100,
 	name: 'react-web-client',
