@@ -15,7 +15,7 @@ module.exports = {
 			},
 			{
 				protocol: 'https',
-				hostname: 'forell-lab.amzb.securityserve.com',
+				hostname: 'aero-lab.amzb.securityserve.com',
 				port: '',
 				pathname: '/wp-content/uploads/**',
 			},

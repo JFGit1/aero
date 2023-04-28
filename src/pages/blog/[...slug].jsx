@@ -12,7 +12,10 @@ export default function BlogPage({ PostPage }) {
 	// console.log(PostPage);
 	return (
 		<>
-			<Seo title='Blog | Aero Design' description='This is the Blog page' />
+			<Seo
+				title={`Blog | Aero Design`}
+				description='This is the Blog page'
+			/>
 			<LayoutMotion>
 				<main className='container mx-auto pt-24'>
 					<h5 className='mb-2 text-base font-bold uppercase tracking-[0.5rem]'>
@@ -22,7 +25,7 @@ export default function BlogPage({ PostPage }) {
 					<SetHTML content={PostPage.content} className={'text-black'} />
 					<Link
 						href={`/blog/${PostPage.categories.nodes[0].slug}`}
-						className=' mt-4 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
+						className='mt-4 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
 						{PostPage.categories.nodes[0].name}
 					</Link>
 				</main>

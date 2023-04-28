@@ -47,6 +47,53 @@
 	}
 }
 
+.inner-line-clamp-2 > p {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+.inner-line-clamp-3 > p {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
+}
+::-webkit-scrollbar-thumb {
+	background: #47a0ff;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #005bbd;
+}
+::-webkit-scrollbar-thumb:active {
+	background: #005bbd;
+}
+::-webkit-scrollbar-track {
+	background: #e1e1e1;
+	border: 0px none #ffffff;
+	border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+	background: #c8c8c8;
+}
+::-webkit-scrollbar-track:active {
+	background: #afafaf;
+}
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
 /* WP BLOCK MEDIA TEXT - Open */
 
 body
