@@ -9,12 +9,12 @@ import apolloClient from '@/services/apollo-client';
 import { ALL_POSTS_PATH, POST_PAGE } from '@/services/graphql/queries';
 
 export default function BlogPage({ PostPage }) {
-	// console.log(PostPage);
+	console.log(PostPage);
 	return (
 		<>
 			<Seo
-				title={`Blog | Aero Design`}
-				description='This is the Blog page'
+				title={`${PostPage.title} | Blog | Aero Design`}
+				description={PostPage.excerpt}
 			/>
 			<LayoutMotion>
 				<main className='container mx-auto pt-24'>

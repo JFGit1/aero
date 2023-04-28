@@ -107,6 +107,7 @@ export const POST_PAGE = gql`
 			databaseId
 			title
 			content
+			excerpt(format: RENDERED)
 			featuredImage {
 				node {
 					title
