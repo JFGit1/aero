@@ -52,7 +52,7 @@ export default function Blog({ AllPostsPage }) {
 										/>
 									</div>
 									<Link
-										href={`/blog${postItem.uri}`}
+										href={`${postItem.uri}`}
 										scroll={false}
 										className='inline-flex max-w-max rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
 										Read more
