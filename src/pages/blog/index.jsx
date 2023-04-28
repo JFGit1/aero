@@ -26,7 +26,7 @@ export default function Blog({ AllPostsPage }) {
 									key={postItem.databaseId}>
 									<div>
 										<Link
-											href={`/blog${postItem.uri}`}
+											href={`${postItem.uri}`}
 											scroll={false}
 											className='mb-2 block text-black transition-all hover:text-blue-600'>
 											<Image

@@ -24,7 +24,7 @@ export default function BlogPage({ PostPage }) {
 					<h1 className='mb-4 text-3xl'>{PostPage.title}</h1>
 					<SetHTML content={PostPage.content} className={'text-black'} />
 					<Link
-						href={`/blog/${PostPage.categories.nodes[0].slug}`}
+						href={`${PostPage.categories.nodes[0].slug}`}
 						className='mt-4 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
 						{PostPage.categories.nodes[0].name}
 					</Link>

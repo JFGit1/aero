@@ -23,7 +23,7 @@ export default function CategoryPage({ CategoryPage }) {
 							<div key={categoryItem.databaseId}>
 								<h4>
 									<Link
-										href={`/blog/${CategoryPage.slug}/${categoryItem.slug}`}
+										href={`${CategoryPage.slug}/${categoryItem.slug}`}
 										scroll={false}
 										className='mb-2 block text-black transition-all hover:text-blue-600'>
 										{categoryItem.title}

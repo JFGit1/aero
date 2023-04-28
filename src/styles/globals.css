@@ -28,12 +28,20 @@
 	}
 
 	p {
-		margin: 0 0 1rem 0;
+		@apply mb-4;
 	}
 
 	ul {
-		margin-bottom: 1rem;
-		padding-left: 1.12rem;
+		@apply mb-4 pl-4;
+	}
+
+	ol {
+		@apply mb-4 list-inside list-decimal pl-4;
+	}
+
+	ul li,
+	ol li {
+		@apply mb-2;
 	}
 
 	.btn {
@@ -159,6 +167,7 @@ body
 	display: flex;
 	justify-content: center;
 	min-height: 430px;
+	margin-bottom: 1rem;
 	padding: 1em;
 	position: relative;
 }

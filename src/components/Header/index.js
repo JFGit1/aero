@@ -21,7 +21,7 @@ export function Header() {
 				</motion.h1>
 				<nav>
 					<ul className='m-0 mt-2 flex gap-5 p-0 text-base md:mt-0'>
-						<li>
+						<li className='m-0 list-none'>
 							<MenuLink label='Home' url='/' />
 						</li>
 						<li>
