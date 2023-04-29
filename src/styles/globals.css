@@ -53,6 +53,10 @@
 	.btn-blue:hover {
 		@apply bg-blue-700;
 	}
+
+	.card div p:last-child {
+		@apply m-0;
+	}
 }
 
 .inner-line-clamp-2 > p {

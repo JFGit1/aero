@@ -11,7 +11,7 @@ const Overlay = ({ post }) => {
 	return (
 		<>
 			<div
-				className='card mb-4 cursor-pointer bg-slate-100 p-4 pb-1 transition-all hover:bg-slate-200'
+				className='card mb-4 h-full cursor-pointer bg-slate-100 p-4 pb-1 transition-all hover:bg-slate-200'
 				onClick={openOverlay}>
 				<h2 className='font-medium'>{post.title}</h2>
 				<div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
