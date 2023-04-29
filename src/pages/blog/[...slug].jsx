@@ -8,13 +8,16 @@ import SetHTML from '@/components/SetHTML';
 import apolloClient from '@/services/apollo-client';
 import { ALL_POSTS_PATH, POST_PAGE } from '@/services/graphql/queries';
 
+import parse from 'html-react-parser';
+
 export default function BlogPage({ PostPage }) {
-	console.log(PostPage);
+	// console.log(PostPage);
+	const parseDesc = parse(PostPage.excerpt);
 	return (
 		<>
 			<Seo
 				title={`${PostPage.title} | Blog | Aero Design`}
-				description={PostPage.excerpt}
+				description={parseDesc[0].props.children}
 			/>
 			<LayoutMotion>
 				<main className='container mx-auto pt-24'>
@@ -25,6 +28,7 @@ export default function BlogPage({ PostPage }) {
 					<SetHTML content={PostPage.content} className={'text-black'} />
 					<Link
 						href={`${PostPage.categories.nodes[0].slug}`}
+						scroll={false}
 						className='mt-4 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
 						{PostPage.categories.nodes[0].name}
 					</Link>

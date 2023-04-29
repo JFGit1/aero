@@ -63,9 +63,10 @@ export const ALL_POSTS = gql`
 			nodes {
 				databaseId
 				title
+				content
+				excerpt
 				slug
 				uri
-				excerpt
 				featuredImage {
 					node {
 						title
@@ -91,6 +92,7 @@ export const ALL_POSTS_PATH = gql`
 	query AllPostsPath {
 		posts(where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }) {
 			nodes {
+				databaseId
 				slug
 				categories(first: 1) {
 					nodes {

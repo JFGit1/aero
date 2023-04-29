@@ -2,11 +2,15 @@ import Seo from '@/components/Seo';
 import { Footer } from '@/components/Footer';
 import LayoutMotion from '@/components/LayoutMotion';
 import Overlay from '@/components/BlogOverlay';
+import apolloClient from '@/services/apollo-client';
+import { ALL_POSTS } from '@/services/graphql/queries';
 
-export default function Home({ posts }) {
-	//console.log('load home');
+export default function Home({ allPosts }) {
 	const renderPosts = () => {
-		return posts.map(post => <Overlay key={post.id} post={post} />);
+		return allPosts.map(post => {
+			console.log('post:', post.title);
+			return <Overlay key={post.databaseId} post={post} />;
+		});
 	};
 
 	return (
@@ -24,20 +28,14 @@ export default function Home({ posts }) {
 	);
 }
 
-export async function getStaticProps() {
-	const response = await fetch(
-		'https://aero-lab.amzb.securityserve.com/wp-json/wp/v2/posts'
-	);
-	const posts = await response.json();
+export async function getServerSideProps(context) {
+	const { data } = await apolloClient.query({
+		query: ALL_POSTS,
+	});
 
 	return {
 		props: {
-			posts: posts.map(post => ({
-				id: post.id,
-				title: post.title.rendered,
-				content: post.content.rendered,
-				excerpt: post.excerpt.rendered,
-			})),
+			allPosts: data.posts.nodes,
 		},
 	};
 }

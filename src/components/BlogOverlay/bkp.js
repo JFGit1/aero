@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import { useState } from 'react';
+import axios from 'axios';
 
 const Overlay = ({ post }) => {
-	// console.log('post:', post);
 	const [isOpen, setIsOpen] = useState(false);
 
 	const openOverlay = () => setIsOpen(true);
@@ -19,19 +18,13 @@ const Overlay = ({ post }) => {
 
 			{isOpen && (
 				<div
-					className='overlay fixed top-0 left-0 z-[9999] flex h-full w-full items-center justify-center bg-slate-300/70'
+					className='overlay fixed top-0 left-0 z-[9999] flex h-full w-full items-center justify-center bg-black/50'
 					onClick={closeOverlay}>
 					<div
 						className='content max-h-[60vh] max-w-4xl overflow-y-auto bg-white p-8'
 						onClick={e => e.stopPropagation()}>
 						<h2 className='mb-4 text-4xl font-medium'>{post.title}</h2>
 						<div dangerouslySetInnerHTML={{ __html: post.content }} />
-						<Link
-							href={`blog/${post.categories.nodes[0].slug}`}
-							scroll={false}
-							className='mt-4 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
-							{post.categories.nodes[0].name}
-						</Link>
 					</div>
 				</div>
 			)}
@@ -40,3 +33,32 @@ const Overlay = ({ post }) => {
 };
 
 export default Overlay;
+
+export async function getServerSideProps(context) {
+	const { slug } = context.query;
+	const response = await axios.get(
+		`https://aero-lab.amzb.securityserve.com/wp-json/wp/v2/posts?slug=${slug}` //exploring-the-vibrant-jazz-scene-of-portland
+	);
+
+	if (
+		!response.data ||
+		!Array.isArray(response.data) ||
+		response.data.length === 0
+	) {
+		return {
+			notFound: true,
+		};
+	}
+
+	const post = response.data[0];
+
+	return {
+		props: {
+			post: {
+				title: post.title.rendered,
+				content: post.content.rendered,
+				excerpt: post.excerpt.rendered,
+			},
+		},
+	};
+}
