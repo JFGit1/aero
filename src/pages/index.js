@@ -6,13 +6,15 @@ import { ALL_POSTS } from '@/services/graphql/queries';
 import React, { useState, useEffect } from 'react';
 
 const LazyOverlay = React.lazy(() => import('@/components/BlogOverlay'));
+const numItems = 1;
 
 export default function Home({ allPosts }) {
 	const [posts, setPosts] = useState([]);
+	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		setPosts(allPosts);
-	}, [allPosts]);
+		setPosts(allPosts.slice(0, page * numItems));
+	}, [allPosts, page]);
 
 	const handleIntersection = post => {
 		const { intersectionRatio } = post.target;
@@ -21,6 +23,10 @@ export default function Home({ allPosts }) {
 		if (intersectionRatio > 0) {
 			post.target.classList.remove('lazy');
 		}
+	};
+
+	const handleLoadMore = () => {
+		page <= Math.ceil(allPosts.length / numItems) ? setPage(page + 1) : null;
 	};
 
 	const renderPosts = () => {
@@ -43,6 +49,13 @@ export default function Home({ allPosts }) {
 				<main className='container mx-auto pt-24'>
 					<h1 className='mb-4 flex items-center text-3xl'>Welcome</h1>
 					<div className='grid grid-cols-3 gap-8'>{renderPosts()}</div>
+					{allPosts.length > page * numItems && (
+						<button
+							onClick={handleLoadMore}
+							className='mt-8 inline-block rounded-md border border-black px-2 py-1 font-medium text-black transition-all hover:border-blue-600 hover:text-blue-600'>
+							Load more
+						</button>
+					)}
 				</main>
 				<Footer />
 			</LayoutMotion>
